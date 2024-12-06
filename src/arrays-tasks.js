@@ -319,10 +319,13 @@ function selectMany(arr, childrenSelector) {
  *   calculateBalance([ [ 10, 8 ], [ 1, 5 ] ])  => (10 - 8) + (1 - 5) = 2 + -4 = -2
  *   calculateBalance([]) => 0
  */
-function calculateBalance(/* arr */) {
-  throw new Error('Not implemented');
+function calculateBalance(arr) {
+  return arr
+    .flatMap(([first, second]) => {
+      return first - second;
+    })
+    .reduce((sum, item) => sum + item, 0);
 }
-
 /**
  * Breaks an array into chunks of the specified size.
  *
