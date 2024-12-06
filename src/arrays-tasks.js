@@ -460,8 +460,17 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+
+const getHexRGB = (num) => {
+  const prefix = '#';
+  const padValue = '0';
+  const len = 6;
+  const numRGB = num.toString(16);
+  return `${prefix}${numRGB.toUpperCase().padStart(len, padValue)}`;
+};
+
+function getHexRGBValues(arr) {
+  return arr.map(getHexRGB);
 }
 
 /**
